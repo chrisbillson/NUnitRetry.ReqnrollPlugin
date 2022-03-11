@@ -1,3 +1,45 @@
+# NUnitRetry.SpecFlowPlugin
+## About
+
+NUnitRetry SpecFlow Plugin is the newest approach to adding "Nunit.Framework.Retry" attribute to SpecFlow's generated tests. It's intention is to mimic SpecFlow+ Runner's re-running abilities. It's main features will be:
+* "Retry" and "Retry(n)" tag on Feature/Scenario/Scenario Outline level - adds "Nunit.Framework.Retry" attribute to given test with default value or "n"
+* Adding "Nunit.Framework.Retry" to each scenario in the project with default max retries value
+* Ability to set default max retries value in specflow.json
+* Ability to add "Nunit.Framework.Retry" to each scenario, without adding any tag to scenario/feature; value will be based on default value from config
+* Prioritisation - Global setting-> Feature level setting -> Scenario level setting
+
+**Please note, that this plugin is currently in development state.**
+
+## Installation
+
+As this plugin is currently in development state, the installation requires you to follow this steps:
+1. Download the repo.
+2. Open NunitRetrySpecFlow in VS.
+3. Publish it somewhere locally as a NuGet package.
+4. Include the NuGet package to target project from your local directory ( https://stackoverflow.com/questions/10240029/how-do-i-install-a-nuget-package-nupkg-file-locally ).
+
+Example usage is presented in included **NunitRetrySpecFlowTests**. 
+
+## Roadmap
+
+- ✅ Add "Nunit.Framework.Retry" attribute with default value when "Retry" tag is found on scenario level
+- ✅ Add "Nunit.Framework.Retry" attribute with N-value when "Retry(N)" tag is found on scenario level
+- ✅ Get default max retries value from specflow.json file
+- ❌ Add "Nunit.Framework.Retry" attribute with default value when "Retry" tag is found on feature level
+- ❌ Add "Nunit.Framework.Retry" attribute with N-value when "Retry(N)" tag is found on feature level
+- ❌ Add "Nunit.Framework.Retry" to each scenario in the project with default max retries value
+
+
+
+
+
+
+
+
+
+
+
+# OG STUFF
 # xRetry
 Retry flickering test cases for xUnit and SpecFlow in dotnet.
 
