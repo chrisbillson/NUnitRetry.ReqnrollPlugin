@@ -1,4 +1,4 @@
-﻿namespace NRetry.SpecFlowPlugin
+namespace NUnitRetry.SpecFlowPlugin
 {
     internal static class Constants
     {

@@ -1,12 +1,12 @@
-﻿using TechTalk.SpecFlow.Generator.Plugins;
+using TechTalk.SpecFlow.Generator.Plugins;
 using TechTalk.SpecFlow.Generator.UnitTestConverter;
 using TechTalk.SpecFlow.Generator.UnitTestProvider;
 using TechTalk.SpecFlow.Infrastructure;
 using TechTalk.SpecFlow.UnitTestProvider;
 
-[assembly: GeneratorPlugin(typeof(NRetry.SpecFlowPlugin.RetryGeneratorPlugin))]
+[assembly: GeneratorPlugin(typeof(NUnitRetry.SpecFlowPlugin.RetryGeneratorPlugin))]
 
-namespace NRetry.SpecFlowPlugin
+namespace NUnitRetry.SpecFlowPlugin
 {
     class RetryGeneratorPlugin : IGeneratorPlugin
     {

@@ -1,4 +1,4 @@
-﻿namespace NRetry.SpecFlowPlugin.Parsers
+namespace NUnitRetry.SpecFlowPlugin.Parsers
 {
     public interface IRetryTagParser
     {

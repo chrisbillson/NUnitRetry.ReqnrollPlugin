@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<TargetFrameworks>net471;netcoreapp2.1</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<NuspecFile>$(MSBuildThisFileDirectory)NRetry.SpecFlowPlugin.nuspec</NuspecFile>
-		<AssemblyName>NRetry.SpecFlowPlugin</AssemblyName>
+		<NuspecFile>$(MSBuildThisFileDirectory)NUnitRetry.SpecFlowPlugin.nuspec</NuspecFile>
+		<AssemblyName>NUnitRetry.SpecFlowPlugin</AssemblyName>
 	</PropertyGroup>
 
 	<ItemGroup>

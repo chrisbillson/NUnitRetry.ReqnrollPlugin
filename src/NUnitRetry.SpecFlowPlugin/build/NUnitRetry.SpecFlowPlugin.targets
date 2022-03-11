@@ -1,0 +1,7 @@
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_NUnitRetryPluginGeneratorPlugin Condition=" '$(MSBuildRuntimeType)' == 'Core'">netcoreapp2.1</_NUnitRetryPluginGeneratorPlugin>
+		<_NUnitRetryPluginGeneratorPlugin Condition=" '$(MSBuildRuntimeType)' != 'Core'">net471</_NUnitRetryPluginGeneratorPlugin>
+		<_NUnitRetryPluginGeneratorPath>$(MSBuildThisFileDirectory)\$(_NUnitRetryPluginGeneratorPlugin)\NUnitRetry.SpecFlowPlugin.dll</_NUnitRetryPluginGeneratorPath>
+	</PropertyGroup>
+</Project>

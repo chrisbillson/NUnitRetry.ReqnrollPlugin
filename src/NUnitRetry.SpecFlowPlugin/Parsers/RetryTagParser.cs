@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
-namespace NRetry.SpecFlowPlugin.Parsers
+namespace NUnitRetry.SpecFlowPlugin.Parsers
 {
     public class RetryTagParser : IRetryTagParser
     {

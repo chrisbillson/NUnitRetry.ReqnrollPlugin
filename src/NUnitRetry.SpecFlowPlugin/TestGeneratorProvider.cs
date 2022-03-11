@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ using TechTalk.SpecFlow.Generator;
 using TechTalk.SpecFlow.Generator.CodeDom;
 using TechTalk.SpecFlow.Generator.UnitTestProvider;
 
-namespace NRetry.SpecFlowPlugin
+namespace NUnitRetry.SpecFlowPlugin
 {
     public class TestGeneratorProvider : NUnit3TestGeneratorProvider
     {

@@ -1,9 +1,9 @@
-﻿
+
 using SpecFlow.Internal.Json;
 using System.IO;
 using TechTalk.SpecFlow.Configuration;
 
-namespace NRetry.SpecFlowPlugin
+namespace NUnitRetry.SpecFlowPlugin
 {
     // Class which holds configuration from specflow.json
     // Utilizes SpecFlow.Internal.Json package which is a simple JSON parser
