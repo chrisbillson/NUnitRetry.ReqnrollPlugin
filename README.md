@@ -25,9 +25,12 @@ Example usage is presented in included **NunitRetrySpecFlowTests**.
 - ✅ Add "Nunit.Framework.Retry" attribute with default value when "Retry" tag is found on scenario level
 - ✅ Add "Nunit.Framework.Retry" attribute with N-value when "Retry(N)" tag is found on scenario level
 - ✅ Get default max retries value from specflow.json file
-- ❌ Add "Nunit.Framework.Retry" attribute with default value when "Retry" tag is found on feature level
-- ❌ Add "Nunit.Framework.Retry" attribute with N-value when "Retry(N)" tag is found on feature level
-- ❌ Add "Nunit.Framework.Retry" to each scenario in the project with default max retries value
+- ✅ Add "Nunit.Framework.Retry" attribute with default value when "Retry" tag is found on feature level
+- ✅ Add "Nunit.Framework.Retry" attribute with N-value when "Retry(N)" tag is found on feature level
+- ✅ Add "Nunit.Framework.Retry" to each scenario in the project with default max retries value
+- ✅ Give ability to add "Nunit.Framework.Retry" globally, even when "Retry" tag is missing
+- ❌ Code cleanup
+- ❌ Setup CI/CD
 
 
 
@@ -38,8 +41,7 @@ Example usage is presented in included **NunitRetrySpecFlowTests**.
 
 
 
-
-# OG STUFF
+# OG STUFF FROM JOSH KEEGAN
 # xRetry
 Retry flickering test cases for xUnit and SpecFlow in dotnet.
 
