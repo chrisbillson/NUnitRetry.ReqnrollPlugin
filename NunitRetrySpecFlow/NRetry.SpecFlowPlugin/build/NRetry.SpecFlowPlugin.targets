@@ -1,0 +1,7 @@
+﻿<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_NRetryPluginGeneratorPlugin Condition=" '$(MSBuildRuntimeType)' == 'Core'">netcoreapp2.1</_NRetryPluginGeneratorPlugin>
+		<_NRetryPluginGeneratorPlugin Condition=" '$(MSBuildRuntimeType)' != 'Core'">net471</_NRetryPluginGeneratorPlugin>
+		<_NRetryPluginGeneratorPath>$(MSBuildThisFileDirectory)\$(_NRetryPluginGeneratorPlugin)\NRetry.SpecFlowPlugin.dll</_NRetryPluginGeneratorPath>
+	</PropertyGroup>
+</Project>

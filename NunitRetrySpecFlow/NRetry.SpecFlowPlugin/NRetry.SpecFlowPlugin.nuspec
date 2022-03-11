@@ -1,0 +1,26 @@
+﻿<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NRetry.SpecFlowPlugin</id>
+    <version>2.0.0</version>
+    <authors>Josh Keegan, Beau Gosse, Piotr Niedzialek</authors>
+    <owners>Piotr Niedziałek</owners>
+    <!--<projectUrl>https://github.com/beaubgosse/xRetry</projectUrl>-->
+    <!--<license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>-->
+    <description>Allows for a @retry(n) tag to be placed above scenarios in SpecFlow.NUnit. This can be used to re-run a failed test up to n times, allowing for transient failures (e.g. network related) to be tolerated. Based on Josh Keegan's xRetry.SpecFlow package</description>
+    <copyright>2022</copyright>
+    <tags>SpecFlow NUnit Retry Test-Automation</tags>
+
+    <dependencies>
+      <dependency id="SpecFlow" version="3.9.50" />
+    </dependencies>
+  </metadata>
+
+  <files>
+	<file src="build\**\*" target="build"/>
+	  
+    <file src="bin\$config$\net471\NRetry.SpecFlowPlugin.*" target="build\net471" />
+    <file src="bin\$config$\netcoreapp2.1\NRetry.SpecFlowPlugin.dll" target="build\netcoreapp2.1" />
+	<file src="bin\$config$\netcoreapp2.1\NRetry.SpecFlowPlugin.pdb" target="build\netcoreapp2.1" />
+  </files>
+</package>
