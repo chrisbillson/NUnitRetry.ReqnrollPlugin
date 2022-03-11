@@ -1,9 +1,9 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Infrastructure;
 
-namespace NRetry.Tests.Steps
+namespace NUnitRetry.Tests.Steps
 {
     [Binding]
     public class RetryTestSteps
