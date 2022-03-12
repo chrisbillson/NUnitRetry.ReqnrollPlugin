@@ -10,7 +10,7 @@ NUnitRetry SpecFlow Plugin is the newest approach to adding "Nunit.Framework.Ret
 
 **Please note, that this plugin is currently in development state.**
 
-## Installation
+## Installation - dev state
 
 As this plugin is currently in development state, the installation requires you to follow this steps:
 1. Download the repo.
@@ -33,9 +33,16 @@ Example usage is presented in included **NunitRetrySpecFlowTests**.
 - ❌ Implement logic when specflow.json is not present
 - ❌ Implement logic when configuration in specflow.json is not present
 
-
-
-
+## Installation 
+1. Include the NuGet package to target project.
+2. Add specflow.json to your project.
+3. Include following section to specflow.json:
+```json
+"NRetrySettings": {
+    "maxRetries": 3,
+    "applyGlobally": true
+  }
+```
 
 
 

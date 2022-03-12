@@ -29,13 +29,26 @@ namespace NUnitRetry.SpecFlowPlugin
             }
             else
             {
-                throw new FileNotFoundException("specflow.json is missing!");
+                throw new FileNotFoundException("specflow.json is missing! Ensure that you've provided specflow.json file to your project and added correct section. For more info proceed to the projects page: https://github.com/farum12/NUnitRetry.SpecFlowPlugin");
             }
-            var jsonConfig = specFlowJsonFile.FromJson<JsonConfig.JsonConfig>();
+
+            try
+            {
+                var jsonConfig = specFlowJsonFile.FromJson<JsonConfig.JsonConfig>();
+
+                MaxRetries = jsonConfig.NRetrySettings.MaxRetries;
+                ApplyGlobally = jsonConfig.NRetrySettings.ApplyGlobally;
+            }
+            catch
+            {
+                // Apply default values if specflow.json is present, but section is not added to the JSON.
+                MaxRetries = 3;
+                ApplyGlobally = true;
+            }
+            
 
 
-            MaxRetries = jsonConfig.NRetrySettings.MaxRetries;
-            ApplyGlobally = jsonConfig.NRetrySettings.ApplyGlobally;
+            
         }
     }
 }
