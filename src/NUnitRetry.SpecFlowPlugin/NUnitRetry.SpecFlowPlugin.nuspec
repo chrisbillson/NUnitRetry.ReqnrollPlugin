@@ -1,12 +1,12 @@
-﻿<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>NUnitRetry.SpecFlowPlugin</id>
-    <version>2.0.0</version>
+    <version>3.9.58</version>
     <authors>Josh Keegan, Piotr Niedzialek</authors>
     <owners>Piotr Niedziałek</owners>
-    <!--<projectUrl>https://github.com/beaubgosse/xRetry</projectUrl>-->
-    <!--<license type="expression">MIT</license>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>-->
+    <projectUrl>https://github.com/farum12/NUnitRetry.SpecFlowPlugin</projectUrl>
+    <license type="expression">MIT</license>
+    <!--<requireLicenseAcceptance>false</requireLicenseAcceptance>-->
     <description>Allows for a @retry(n) tag to be placed above scenarios in SpecFlow.NUnit. This can be used to re-run a failed test up to n times, allowing for transient failures (e.g. network related) to be tolerated. Based on Josh Keegan's xRetry.SpecFlow package</description>
     <copyright>2022</copyright>
     <tags>SpecFlow NUnit Retry Test-Automation</tags>

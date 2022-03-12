@@ -30,7 +30,8 @@ Example usage is presented in included **NunitRetrySpecFlowTests**.
 - ✅ Add "Nunit.Framework.Retry" to each scenario in the project with default max retries value
 - ✅ Give ability to add "Nunit.Framework.Retry" globally, even when "Retry" tag is missing
 - ❌ Code cleanup
-- ❌ Setup CI/CD
+- ❌ Implement logic when specflow.json is not present
+- ❌ Implement logic when configuration in specflow.json is not present
 
 
 

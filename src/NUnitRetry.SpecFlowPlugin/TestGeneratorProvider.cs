@@ -41,9 +41,6 @@ namespace NUnitRetry.SpecFlowPlugin
 
             string[] featureTags = generationContext.Feature.Tags.Select(t => StripLeadingAtSign(t.Name)).ToArray();
 
-            File.AppendAllText(@"C:\Dev\Temp\DEBUGFILE.txt", "[SetTestMethod] Scenario found!\n");
-            File.AppendAllText(@"C:\Dev\Temp\DEBUGFILE.txt", "GenContext.Feature.Name: " + generationContext.Feature.Name + "\n");
-
             ApplyRetry(featureTags, Enumerable.Empty<string>(), testMethod);
         }
 
