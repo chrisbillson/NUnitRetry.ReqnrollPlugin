@@ -22,7 +22,7 @@ If you have a test that covers some flaky code, where sporadic failures are caus
 
 ## Installation 
 1. Include the NuGet package (https://www.nuget.org/packages/NUnitRetry.SpecFlowPlugin/3.9.58) to target project.
-2. Add specflow.json to your project.
+2. Add specflow.json to your project **(NOTE: Without specflow.json exception will be thrown, an info will be outputed to console)**.
 3. Include following section to specflow.json:
 ```json
 "NRetrySettings": {
