@@ -41,6 +41,7 @@ namespace NUnitRetry.SpecFlowPlugin
 
             string[] featureTags = generationContext.Feature.Tags.Select(t => StripLeadingAtSign(t.Name)).ToArray();
 
+            Logging.WriteLine("SetTestMethod", "Stepping into ApplyRetry.");
             ApplyRetry(featureTags, Enumerable.Empty<string>(), testMethod);
         }
 
@@ -56,7 +57,12 @@ namespace NUnitRetry.SpecFlowPlugin
             // Feature tags will have already been processed in one of the methods above, which are executed before this
             IEnumerable<string> featureTags = generationContext.Feature.Tags.Select(t => StripLeadingAtSign(t.Name));
 
-            ApplyRetry((string[])scenarioCategories, featureTags, testMethod);
+            Logging.WriteLine("SetTestMethodCategories", "Checking if any Retry tags are found.");
+            if (GetRetryTag((string[]) scenarioCategories) != null)
+            {
+                Logging.WriteLine("SetTestMethodCategories", "Retry tags found. Stepping into ApplyRetry.");
+                ApplyRetry((string[]) scenarioCategories, featureTags, testMethod);
+            }
         }
 
         
@@ -114,6 +120,7 @@ namespace NUnitRetry.SpecFlowPlugin
         /// </summary>
         private void ApplyGlobalRetry(CodeMemberMethod testMethod)
         {
+            Logging.WriteLine("ApplyGlobalRetry", "Starting...");
             if (_configuration.ApplyGlobally)
             {
                 var attribute = new CodeAttributeDeclaration(
@@ -125,7 +132,8 @@ namespace NUnitRetry.SpecFlowPlugin
         }
 
         private void DeleteRetryAttribute(CodeMemberMethod testMethod)
-        {        
+        {
+            Logging.WriteLine("DeleteRetryAttribute", "Starting...");
             // Remove the original fact or theory attribute
             CodeAttributeDeclaration originalAttribute = testMethod.CustomAttributes.OfType<CodeAttributeDeclaration>()
                 .FirstOrDefault(a =>
