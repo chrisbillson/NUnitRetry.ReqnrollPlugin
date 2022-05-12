@@ -21,7 +21,7 @@ Whenever a test includes real-world infrastructure, particularly when communicat
 If you have a test that covers some flaky code, where sporadic failures are caused by a bug, this library should **not** be used to cover it up!
 
 ## Installation 
-1. Include the NuGet package (https://www.nuget.org/packages/NUnitRetry.SpecFlowPlugin/3.9.58) to target project.
+1. Include the NuGet package (https://www.nuget.org/packages/NUnitRetry.SpecFlowPlugin/) to target project.
 2. Add specflow.json to your project **(NOTE: Without specflow.json exception will be thrown, an info will be outputed to console)**.
 3. Include following section to specflow.json:
 ```json
