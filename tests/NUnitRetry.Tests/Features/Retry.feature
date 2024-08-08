@@ -1,4 +1,4 @@
-﻿Feature: Retry
+Feature: Retry
 	In order to allow for transient failures
 	As a SpecFlow Generator Plugin Developer
 	I want to ensure that result is based on MaxRetries from specflow.json
