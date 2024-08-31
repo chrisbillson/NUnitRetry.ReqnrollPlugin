@@ -6,7 +6,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
-		<PackageReference Include="NUnitRetry.SpecFlowPlugin" Version="3.9.59" />
+		<PackageReference Include="NUnitRetry.SpecFlowPlugin" Version="4.0.0" />
 		<PackageReference Include="SpecFlow" Version="3.9.58" />
 		<PackageReference Include="FluentAssertions" Version="5.10.3" />
         <PackageReference Include="NUnit" Version="3.13.2" />
