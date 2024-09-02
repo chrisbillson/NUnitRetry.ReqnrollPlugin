@@ -1,13 +1,10 @@
+using Reqnroll.Generator.CodeDom;
+using Reqnroll.Generator.UnitTestProvider;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow.Generator;
-using TechTalk.SpecFlow.Generator.CodeDom;
-using TechTalk.SpecFlow.Generator.UnitTestProvider;
+using Reqnroll.Generator;
 
 namespace NUnitRetry.SpecFlowPlugin
 {

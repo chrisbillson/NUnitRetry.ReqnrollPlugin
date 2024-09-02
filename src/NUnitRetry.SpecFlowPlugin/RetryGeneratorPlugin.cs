@@ -1,8 +1,7 @@
-using TechTalk.SpecFlow.Generator.Plugins;
-using TechTalk.SpecFlow.Generator.UnitTestConverter;
-using TechTalk.SpecFlow.Generator.UnitTestProvider;
-using TechTalk.SpecFlow.Infrastructure;
-using TechTalk.SpecFlow.UnitTestProvider;
+using Reqnroll.Generator.Plugins;
+using Reqnroll.Generator.UnitTestProvider;
+using Reqnroll.Infrastructure;
+using Reqnroll.UnitTestProvider;
 
 [assembly: GeneratorPlugin(typeof(NUnitRetry.SpecFlowPlugin.RetryGeneratorPlugin))]
 

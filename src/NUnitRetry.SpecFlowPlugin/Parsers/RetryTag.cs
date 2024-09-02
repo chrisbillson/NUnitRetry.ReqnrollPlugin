@@ -1,4 +1,3 @@
-using System;
 namespace NUnitRetry.SpecFlowPlugin.Parsers
 {
     public class RetryTag
