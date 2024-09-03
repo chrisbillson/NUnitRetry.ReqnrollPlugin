@@ -1,6 +1,6 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>NUnitRetry.SpecFlowPlugin</id>
+    <id>NUnitRetry.ReqnrollPlugin</id>
     <version>4.0.0</version>
     <authors>Josh Keegan, Piotr Niedzialek</authors>
     <owners>Piotr Niedziałek</owners>
@@ -12,14 +12,14 @@
     <tags>SpecFlow NUnit Retry Test-Automation</tags>
 
     <dependencies>
-      <dependency id="SpecFlow" version="3.9.58" />
+	    <dependency id="Reqnroll" version="2.1.0" />
     </dependencies>
   </metadata>
 
   <files>
 	<file src="build\**\*" target="build"/>
 	  
-    <file src="bin\$config$\netstandard2.0\NUnitRetry.SpecFlowPlugin.*" target="build\netstandard2.0" />
+    <file src="bin\$config$\netstandard2.0\NUnitRetry.ReqnrollPlugin.*" target="build\netstandard2.0" />
     <!--<file src="bin\$config$\netstandard2.0\NUnitRetry.SpecFlowPlugin.dll" target="build\netstandard2.0" />
 	<file src="bin\$config$\netstandard2.0\NUnitRetry.SpecFlowPlugin.pdb" target="build\netstandard2.0" />-->
   </files>

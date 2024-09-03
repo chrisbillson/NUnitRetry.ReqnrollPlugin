@@ -1,5 +1,5 @@
 using NUnitRetry.Tests.Steps;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace NUnitRetry.Tests.Hooks
 {
