@@ -1,6 +1,6 @@
+using Reqnroll.Configuration;
 using SpecFlow.Internal.Json;
 using System.IO;
-using TechTalk.SpecFlow.Configuration;
 
 namespace NUnitRetry.Tests.Support
 {
@@ -11,9 +11,9 @@ namespace NUnitRetry.Tests.Support
         public int MaxRetries;
         public bool ApplyGlobally;
 
-        private readonly ISpecFlowJsonLocator _specFlowJsonLocator;
+        private readonly IReqnrollJsonLocator _specFlowJsonLocator;
 
-        public Configuration(ISpecFlowJsonLocator specFlowJsonLocator)
+        public Configuration(IReqnrollJsonLocator specFlowJsonLocator)
         {
             _specFlowJsonLocator = specFlowJsonLocator;
             LoadConfiguration();
@@ -22,9 +22,9 @@ namespace NUnitRetry.Tests.Support
         private void LoadConfiguration()
         {
             string specFlowJsonFile;
-            if (File.Exists(_specFlowJsonLocator.GetSpecFlowJsonFilePath()))
+            if (File.Exists(_specFlowJsonLocator.GetReqnrollJsonFilePath()))
             {
-                specFlowJsonFile = File.ReadAllText(_specFlowJsonLocator.GetSpecFlowJsonFilePath());
+                specFlowJsonFile = File.ReadAllText(_specFlowJsonLocator.GetReqnrollJsonFilePath());
             }
             else
             {
