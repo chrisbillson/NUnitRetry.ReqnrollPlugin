@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30907.101
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35201.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitRetry.SpecFlowPlugin", "NUnitRetry.SpecFlowPlugin\NUnitRetry.SpecFlowPlugin.csproj", "{A3385FC6-207D-4295-9AA9-1D0D2D1991E1}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC838A39-15EB-4A1F-BF26-1298CEC4A744}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.targets = Directory.Build.targets
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitRetry.ReqnrollPlugin", "NUnitRetry.ReqnrollPlugin\NUnitRetry.ReqnrollPlugin.csproj", "{7703D3F7-7EBE-43E1-A6BB-D846E727D9EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,10 +16,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A3385FC6-207D-4295-9AA9-1D0D2D1991E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3385FC6-207D-4295-9AA9-1D0D2D1991E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3385FC6-207D-4295-9AA9-1D0D2D1991E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3385FC6-207D-4295-9AA9-1D0D2D1991E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7703D3F7-7EBE-43E1-A6BB-D846E727D9EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7703D3F7-7EBE-43E1-A6BB-D846E727D9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7703D3F7-7EBE-43E1-A6BB-D846E727D9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7703D3F7-7EBE-43E1-A6BB-D846E727D9EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

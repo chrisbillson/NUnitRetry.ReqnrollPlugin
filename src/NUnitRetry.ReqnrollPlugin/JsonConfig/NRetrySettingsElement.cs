@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace NUnitRetry.SpecFlowPlugin.JsonConfig
+namespace NUnitRetry.ReqnrollPlugin.JsonConfig
 {
     // Class containing definitions and its default values for config from specflow.json
     public class NRetrySettingsElement

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Reqnroll.Generator;
 
-namespace NUnitRetry.SpecFlowPlugin
+namespace NUnitRetry.ReqnrollPlugin
 {
     public class TestGeneratorProvider : NUnit3TestGeneratorProvider
     {
@@ -62,7 +62,7 @@ namespace NUnitRetry.SpecFlowPlugin
             }
         }
 
-        
+
 
         private static string StripLeadingAtSign(string s) => s.StartsWith("@") ? s.Substring(1) : s;
 
@@ -87,7 +87,7 @@ namespace NUnitRetry.SpecFlowPlugin
             {
                 return;
             }
-          
+
             // At feature level - if no retry tags are found - skip
             // At scenario level - if no retry tags are found - skip
             string strRetryTag = GetRetryTag(tags);
@@ -123,7 +123,7 @@ namespace NUnitRetry.SpecFlowPlugin
                 var attribute = new CodeAttributeDeclaration(
                     "NUnit.Framework.Retry",
                     new CodeAttributeArgument(new CodePrimitiveExpression(_configuration.MaxRetries)));
-                
+
                 testMethod.CustomAttributes.Add(attribute);
             }
         }

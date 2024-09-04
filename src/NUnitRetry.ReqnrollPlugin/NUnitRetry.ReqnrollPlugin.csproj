@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<NuspecFile>$(MSBuildThisFileDirectory)NUnitRetry.SpecFlowPlugin.nuspec</NuspecFile>
+		<NuspecFile>$(MSBuildThisFileDirectory)NUnitRetry.ReqnrollPlugin.nuspec</NuspecFile>
 		<AssemblyName>NUnitRetry.ReqnrollPlugin</AssemblyName>
 	</PropertyGroup>
 

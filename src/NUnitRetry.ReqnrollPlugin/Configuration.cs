@@ -1,9 +1,8 @@
-
 using Reqnroll.Configuration;
 using SpecFlow.Internal.Json;
 using System.IO;
 
-namespace NUnitRetry.SpecFlowPlugin
+namespace NUnitRetry.ReqnrollPlugin
 {
     // Class which holds configuration from specflow.json
     // Utilizes SpecFlow.Internal.Json package which is a simple JSON parser
@@ -45,10 +44,10 @@ namespace NUnitRetry.SpecFlowPlugin
                 MaxRetries = 3;
                 ApplyGlobally = true;
             }
-            
 
 
-            
+
+
         }
     }
 }

@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace NUnitRetry.SpecFlowPlugin.JsonConfig
+namespace NUnitRetry.ReqnrollPlugin.JsonConfig
 {
     public class JsonConfig
     {

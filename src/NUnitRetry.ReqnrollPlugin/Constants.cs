@@ -1,4 +1,4 @@
-namespace NUnitRetry.SpecFlowPlugin
+namespace NUnitRetry.ReqnrollPlugin
 {
     internal static class Constants
     {

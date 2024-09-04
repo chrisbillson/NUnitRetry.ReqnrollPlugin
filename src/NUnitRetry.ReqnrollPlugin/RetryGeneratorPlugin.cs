@@ -1,11 +1,13 @@
+using NUnitRetry.ReqnrollPlugin;
+
 using Reqnroll.Generator.Plugins;
 using Reqnroll.Generator.UnitTestProvider;
 using Reqnroll.Infrastructure;
 using Reqnroll.UnitTestProvider;
 
-[assembly: GeneratorPlugin(typeof(NUnitRetry.SpecFlowPlugin.RetryGeneratorPlugin))]
+[assembly: GeneratorPlugin(typeof(RetryGeneratorPlugin))]
 
-namespace NUnitRetry.SpecFlowPlugin
+namespace NUnitRetry.ReqnrollPlugin
 {
     class RetryGeneratorPlugin : IGeneratorPlugin
     {
