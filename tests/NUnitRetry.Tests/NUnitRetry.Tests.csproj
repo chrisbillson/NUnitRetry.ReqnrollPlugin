@@ -9,7 +9,7 @@
 		<PackageReference Include="FluentAssertions" Version="5.10.3" />
         <PackageReference Include="NUnit" Version="3.13.2" />
         <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-        <PackageReference Include="NUnitRetry.ReqnrollPlugin" Version="4.0.0" />
+        <PackageReference Include="NUnitRetry.ReqnrollPlugin" Version="1.0.0" />
         <PackageReference Include="Reqnroll" Version="2.1.0" />
         <PackageReference Include="Reqnroll.NUnit" Version="2.1.0" />
 	</ItemGroup>
@@ -19,21 +19,5 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
-
-
-	
-	
-
-
-	<!--<PropertyGroup>
-		<_GeneratorTFM Condition=" '$(MSBuildRuntimeType)' == 'Core'">netcoreapp2.1</_GeneratorTFM>
-		<_GeneratorTFM Condition=" '$(MSBuildRuntimeType)' != 'Core'">net461</_GeneratorTFM>
-		<_PathToOurGeneratorPlugin>C:\Dev\Repos\test-automation\Stubs\NunitRetrySpecFlow\NRetry.SpecFlowPlugin\bin\Release\netcoreapp2.1\NRetry.SpecFlowPlugin.dll</_PathToOurGeneratorPlugin>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<SpecFlowGeneratorPlugins Include="$(_PathToOurGeneratorPlugin)" />
-	</ItemGroup>-->
-
 
 </Project>
