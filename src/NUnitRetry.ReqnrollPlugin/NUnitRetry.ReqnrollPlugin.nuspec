@@ -12,6 +12,7 @@
 
     <dependencies>
 	    <dependency id="Reqnroll" version="2.1.0" />
+		<dependency id="System.CodeDom" version="8.0.0" />
     </dependencies>
   </metadata>
 
