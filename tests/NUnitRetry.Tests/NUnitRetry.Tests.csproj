@@ -20,20 +20,4 @@
 	  </None>
 	</ItemGroup>
 
-
-	
-	
-
-
-	<!--<PropertyGroup>
-		<_GeneratorTFM Condition=" '$(MSBuildRuntimeType)' == 'Core'">netcoreapp2.1</_GeneratorTFM>
-		<_GeneratorTFM Condition=" '$(MSBuildRuntimeType)' != 'Core'">net461</_GeneratorTFM>
-		<_PathToOurGeneratorPlugin>C:\Dev\Repos\test-automation\Stubs\NunitRetrySpecFlow\NRetry.SpecFlowPlugin\bin\Release\netcoreapp2.1\NRetry.SpecFlowPlugin.dll</_PathToOurGeneratorPlugin>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<SpecFlowGeneratorPlugins Include="$(_PathToOurGeneratorPlugin)" />
-	</ItemGroup>-->
-
-
 </Project>
