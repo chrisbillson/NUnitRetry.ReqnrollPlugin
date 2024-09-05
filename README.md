@@ -1,6 +1,8 @@
 # NUnitRetry.ReqnrollPlugin
 ## About
 
+Reqnroll conversion of NUnitRetry.SpecFlowPlugin by Piotr Niedzialek (https://github.com/farum12/NUnitRetry.SpecFlowPlugin)
+
 NUnitRetry Reqnroll Plugin is the newest approach to adding "Nunit.Framework.Retry" attribute to Reqnroll's generated tests. It's based on Josh Keegan xRetry (https://github.com/JoshKeegan/xRetry). It's intention is to mimic SpecFlow+ Runner's re-running abilities. It's main features are:
 * "Retry" and "Retry(n)" tag on Feature/Scenario/Scenario Outline level - adds "Nunit.Framework.Retry" attribute to given test with default value or "n"
 * Adding "Nunit.Framework.Retry" to each generated test method in the project with default max retries value
