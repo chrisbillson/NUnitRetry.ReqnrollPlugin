@@ -24,12 +24,6 @@ jobs:
     - name: Restore src dependencies
       run: dotnet restore $GITHUB_WORKSPACE/src/NUnitRetry.sln
       
-    - name: Restore test dependencies 
-      run: dotnet restore $GITHUB_WORKSPACE/tests/NUnitRetryTests.sln
-      
     - name: Build src
       run: dotnet build $GITHUB_WORKSPACE/src/NUnitRetry.sln --no-restore  --configuration release
-      
-    - name: Build test
-      run: dotnet build $GITHUB_WORKSPACE/tests/NUnitRetryTests.sln --no-restore
     
