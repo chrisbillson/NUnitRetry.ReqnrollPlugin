@@ -26,8 +26,6 @@ namespace NUnitRetry.ReqnrollPlugin
             base.SetRowTest(generationContext, testMethod, scenarioTitle);
 
             // We don't want to add tag for scenario outline, as it should be added with SetTestMethod
-            /*string[] featureTags = generationContext.Feature.Tags.Select(t => StripLeadingAtSign(t.Name)).ToArray();
-            ApplyRetry(featureTags, Enumerable.Empty<string>(), testMethod);*/
         }
 
         // Called for scenarios, even when it has no tags.
