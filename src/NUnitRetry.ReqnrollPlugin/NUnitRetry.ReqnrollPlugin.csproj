@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<NuspecFile>$(MSBuildThisFileDirectory)NUnitRetry.ReqnrollPlugin.nuspec</NuspecFile>
+		<AssemblyName>NUnitRetry.ReqnrollPlugin</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="build\**\*" />
+		<None Include="build\**\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Reqnroll.CustomPlugin" Version="2.1.0" />
+		<PackageReference Include="SpecFlow.Internal.Json" Version="1.0.8" />
+		<PackageReference Include="System.CodeDom" Version="8.0.0" />
+	</ItemGroup>
+</Project>

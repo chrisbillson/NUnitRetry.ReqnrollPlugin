@@ -1,5 +1,4 @@
-using System;
-namespace NUnitRetry.SpecFlowPlugin.Parsers
+namespace NUnitRetry.ReqnrollPlugin.Parsers
 {
     public class RetryTag
     {

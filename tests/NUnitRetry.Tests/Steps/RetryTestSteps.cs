@@ -1,6 +1,5 @@
 using NUnit.Framework;
-using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Infrastructure;
+using Reqnroll;
 
 namespace NUnitRetry.Tests.Steps
 {
@@ -8,11 +7,11 @@ namespace NUnitRetry.Tests.Steps
     public class RetryTestSteps
     {
         private readonly Support.Configuration _configuration;
-        private readonly ISpecFlowOutputHelper _outputHelper;
+        private readonly IReqnrollOutputHelper _outputHelper;
 
         public static int RetryCount { get; set; }
 
-        public RetryTestSteps(Support.Configuration configuration, ISpecFlowOutputHelper outputHelper)
+        public RetryTestSteps(Support.Configuration configuration, IReqnrollOutputHelper outputHelper)
         {
             _configuration = configuration;
             _outputHelper = outputHelper;

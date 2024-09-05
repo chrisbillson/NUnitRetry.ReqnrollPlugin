@@ -1,12 +1,13 @@
-using TechTalk.SpecFlow.Generator.Plugins;
-using TechTalk.SpecFlow.Generator.UnitTestConverter;
-using TechTalk.SpecFlow.Generator.UnitTestProvider;
-using TechTalk.SpecFlow.Infrastructure;
-using TechTalk.SpecFlow.UnitTestProvider;
+using NUnitRetry.ReqnrollPlugin;
 
-[assembly: GeneratorPlugin(typeof(NUnitRetry.SpecFlowPlugin.RetryGeneratorPlugin))]
+using Reqnroll.Generator.Plugins;
+using Reqnroll.Generator.UnitTestProvider;
+using Reqnroll.Infrastructure;
+using Reqnroll.UnitTestProvider;
 
-namespace NUnitRetry.SpecFlowPlugin
+[assembly: GeneratorPlugin(typeof(RetryGeneratorPlugin))]
+
+namespace NUnitRetry.ReqnrollPlugin
 {
     class RetryGeneratorPlugin : IGeneratorPlugin
     {

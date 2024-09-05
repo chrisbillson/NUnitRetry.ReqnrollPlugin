@@ -1,15 +1,12 @@
+using Reqnroll.Generator.CodeDom;
+using Reqnroll.Generator.UnitTestProvider;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow.Generator;
-using TechTalk.SpecFlow.Generator.CodeDom;
-using TechTalk.SpecFlow.Generator.UnitTestProvider;
+using Reqnroll.Generator;
 
-namespace NUnitRetry.SpecFlowPlugin
+namespace NUnitRetry.ReqnrollPlugin
 {
     public class TestGeneratorProvider : NUnit3TestGeneratorProvider
     {
@@ -29,8 +26,6 @@ namespace NUnitRetry.SpecFlowPlugin
             base.SetRowTest(generationContext, testMethod, scenarioTitle);
 
             // We don't want to add tag for scenario outline, as it should be added with SetTestMethod
-            /*string[] featureTags = generationContext.Feature.Tags.Select(t => StripLeadingAtSign(t.Name)).ToArray();
-            ApplyRetry(featureTags, Enumerable.Empty<string>(), testMethod);*/
         }
 
         // Called for scenarios, even when it has no tags.
@@ -65,7 +60,7 @@ namespace NUnitRetry.SpecFlowPlugin
             }
         }
 
-        
+
 
         private static string StripLeadingAtSign(string s) => s.StartsWith("@") ? s.Substring(1) : s;
 
@@ -90,7 +85,7 @@ namespace NUnitRetry.SpecFlowPlugin
             {
                 return;
             }
-          
+
             // At feature level - if no retry tags are found - skip
             // At scenario level - if no retry tags are found - skip
             string strRetryTag = GetRetryTag(tags);
@@ -126,7 +121,7 @@ namespace NUnitRetry.SpecFlowPlugin
                 var attribute = new CodeAttributeDeclaration(
                     "NUnit.Framework.Retry",
                     new CodeAttributeArgument(new CodePrimitiveExpression(_configuration.MaxRetries)));
-                
+
                 testMethod.CustomAttributes.Add(attribute);
             }
         }

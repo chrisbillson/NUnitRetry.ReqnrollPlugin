@@ -1,17 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>net8</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
-		<PackageReference Include="NUnitRetry.SpecFlowPlugin" Version="4.0.0" />
-		<PackageReference Include="SpecFlow" Version="3.9.58" />
 		<PackageReference Include="FluentAssertions" Version="5.10.3" />
         <PackageReference Include="NUnit" Version="3.13.2" />
         <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-        <PackageReference Include="SpecFlow.NUnit" Version="3.9.58" />
+        <PackageReference Include="NUnitRetry.ReqnrollPlugin" Version="4.0.0" />
+        <PackageReference Include="Reqnroll" Version="2.1.0" />
+        <PackageReference Include="Reqnroll.NUnit" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="reqnroll.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 
