@@ -29,8 +29,7 @@ public sealed class NRetryCommand : DelegatingTestCommand
             {
                 context.CurrentResult = innerCommand.Execute(context);
             }
-            // Commands are supposed to catch exceptions, but some don't
-            // and we want to look at restructuring the API in the future.
+            // Commands are supposed to catch exceptions, but some don't.
             catch (Exception ex)
             {
                 context.CurrentResult ??= context.CurrentTest.MakeTestResult();
