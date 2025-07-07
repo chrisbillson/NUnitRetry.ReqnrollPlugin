@@ -12,7 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ReqnrollGeneratorPlugins Include="../../src/NUnitRetry.ReqnrollPlugin/bin/$(Configuration)/netstandard2.0/NUnitRetry.ReqnrollPlugin.dll" />
+		<ReqnrollGeneratorPlugins Include="./NUnitRetry.ReqnrollPlugin/bin/$(Configuration)/netstandard2.0/NUnitRetry.ReqnrollPlugin.dll" />
 	</ItemGroup>
 
 	<ItemGroup>
