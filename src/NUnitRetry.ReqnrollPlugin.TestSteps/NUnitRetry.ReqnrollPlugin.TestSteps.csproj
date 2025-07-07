@@ -16,8 +16,4 @@
       <ProjectReference Include="..\NUnitRetry.ReqnrollPlugin\NUnitRetry.ReqnrollPlugin.csproj" />
     </ItemGroup>
 
-	<ItemGroup>
-		<ReqnrollGeneratorPlugins Include="../NUnitRetry.ReqnrollPlugin/bin/$(Configuration)/netstandard2.0/NUnitRetry.ReqnrollPlugin.dll" />
-	</ItemGroup>
-
 </Project>
