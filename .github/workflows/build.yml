@@ -43,13 +43,24 @@ jobs:
       run: dotnet format $GITHUB_WORKSPACE/NUnitRetry.sln --verify-no-changes --no-restore
 
     - name: Build src
-      run: dotnet build $GITHUB_WORKSPACE/NUnitRetry.sln -c Release --no-restore -p:PackageVersion=${{ env.VERSION }}
+      run: |
+        dotnet build $GITHUB_WORKSPACE/src/NUnitRetry/NUnitRetry.csproj -c Release --no-restore -p:PackageVersion=${{ env.VERSION }}
+        dotnet build $GITHUB_WORKSPACE/src/NUnitRetry.ReqnrollPlugin/NUnitRetry.ReqnrollPlugin.csproj -c Release --no-restore -p:PackageVersion=${{ env.VERSION }}
 
     - name: Run unit tests
       run: dotnet test $GITHUB_WORKSPACE/src/NUnitRetry.Tests/NUnitRetry.Tests.csproj -c Release --no-restore --no-build
 
+    - name: Build reqnroll plugin tests
+      run: |
+        dotnet build $GITHUB_WORKSPACE/src/NUnitRetry.ReqnrollPlugin.TestSteps/NUnitRetry.ReqnrollPlugin.TestSteps.csproj -c Release --no-restore
+        dotnet build $GITHUB_WORKSPACE/src/NUnitRetry.ReqnrollPlugin.NoConfig.Tests/NUnitRetry.ReqnrollPlugin.NoConfig.Tests.csproj -c Release --no-restore
+        dotnet build $GITHUB_WORKSPACE/src/NUnitRetry.ReqnrollPlugin.RetryTag.Tests/NUnitRetry.ReqnrollPlugin.RetryTag.Tests.csproj -c Release --no-restore
+        dotnet build $GITHUB_WORKSPACE/src/NUnitRetry.ReqnrollPlugin.GlobalConfig.Tests/NUnitRetry.ReqnrollPlugin.GlobalConfig.Tests.csproj -c Release --no-restore
+        
+
     - name: Run reqnroll plugin tests
       run: |
+        dotnet test $GITHUB_WORKSPACE/src/NUnitRetry.ReqnrollPlugin.NoConfig.Tests/NUnitRetry.ReqnrollPlugin.NoConfig.Tests.csproj -c Release --no-restore --no-build
         dotnet test $GITHUB_WORKSPACE/src/NUnitRetry.ReqnrollPlugin.RetryTag.Tests/NUnitRetry.ReqnrollPlugin.RetryTag.Tests.csproj -c Release --no-restore --no-build
         dotnet test $GITHUB_WORKSPACE/src/NUnitRetry.ReqnrollPlugin.GlobalConfig.Tests/NUnitRetry.ReqnrollPlugin.GlobalConfig.Tests.csproj -c Release --no-restore --no-build
 
