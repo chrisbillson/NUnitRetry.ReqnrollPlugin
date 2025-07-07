@@ -16,7 +16,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\NUnitRetry.ReqnrollPlugin\NUnitRetry.ReqnrollPlugin.csproj" />
+	  <ProjectReference Include="..\NUnitRetry.ReqnrollPlugin.TestSteps\NUnitRetry.ReqnrollPlugin.TestSteps.csproj" />
+	  <ProjectReference Include="..\NUnitRetry.ReqnrollPlugin\NUnitRetry.ReqnrollPlugin.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

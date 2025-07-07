@@ -1,0 +1,15 @@
+{
+  "bindingCulture": {
+    "name": "en-us"
+  },
+  "language": {
+    "feature": "en-us"
+  },
+  "NRetrySettings": {
+    "maxRetries": 5,
+    "applyGlobally": true
+  },
+  "stepAssemblies": [
+    { "assembly": "NUnitRetry.ReqnrollPlugin.TestSteps" }
+  ]
+}
