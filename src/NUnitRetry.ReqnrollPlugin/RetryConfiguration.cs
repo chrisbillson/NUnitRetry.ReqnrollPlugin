@@ -8,6 +8,9 @@ namespace NUnitRetry.ReqnrollPlugin
     public class RetryConfiguration
     {
         private const string RetrySettingsKey = "NRetrySettings";
+        private const int DefaultMaxRetries = 1;
+        private const bool DefaultApplyGlobally = false;
+
         public int MaxRetries { get; private set; }
         public bool ApplyGlobally { get; private set; }
 
@@ -52,9 +55,9 @@ namespace NUnitRetry.ReqnrollPlugin
             }
             else
             {
-                // If reqnroll.json does not exist, fallback to default values.
-                MaxRetries = 1;
-                ApplyGlobally = false;
+                // If reqnroll.json does not exist, fallback to safe default values.
+                MaxRetries = DefaultMaxRetries;
+                ApplyGlobally = DefaultApplyGlobally;
             }
         }
     }
