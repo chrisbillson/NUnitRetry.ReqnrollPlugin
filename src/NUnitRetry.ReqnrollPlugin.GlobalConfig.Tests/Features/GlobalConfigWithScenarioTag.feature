@@ -1,7 +1,7 @@
 Feature: Retry Tag With Global Config
 	In order to allow for transient failures
 	As a reqnroll Generator Plugin Developer
-	I want to ensure that result is based on MaxRetries from reqnroll.json
+	I want to ensure that retries are correctly applied based on MaxRetries from reqnroll.json
 
 @Retry
 Scenario: Total retries equals MaxRetries from global config when no retry count specified by scenario tag
