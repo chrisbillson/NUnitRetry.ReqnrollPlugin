@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -12,11 +12,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ReqnrollGeneratorPlugins Include="../../src/NUnitRetry.ReqnrollPlugin/bin/$(Configuration)/netstandard2.0/NUnitRetry.ReqnrollPlugin.dll" />
+		<ReqnrollGeneratorPlugins Include="../NUnitRetry.ReqnrollPlugin/bin/$(Configuration)/netstandard2.0/NUnitRetry.ReqnrollPlugin.dll" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\NUnitRetry.ReqnrollPlugin\NUnitRetry.ReqnrollPlugin.csproj" />
+	  <ProjectReference Include="..\NUnitRetry.ReqnrollPlugin.TestSteps\NUnitRetry.ReqnrollPlugin.TestSteps.csproj" />
+	  <ProjectReference Include="..\NUnitRetry.ReqnrollPlugin\NUnitRetry.ReqnrollPlugin.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -10,7 +10,7 @@ namespace NUnitRetry.ReqnrollPlugin
 {
     public class TestGeneratorProvider : NUnit3TestGeneratorProvider
     {
-        protected internal const string RETRY_ATTR = "NUnit.Framework.Retry";
+        protected internal const string RETRY_ATTR = "NUnit.Framework.NRetry";
 
         private readonly RetryConfiguration _configuration;
 
@@ -104,7 +104,7 @@ namespace NUnitRetry.ReqnrollPlugin
 
             // Apply Retry attribute which is based on Feature-tag
             var attribute = new CodeAttributeDeclaration(
-                "NUnit.Framework.Retry",
+                RETRY_ATTR,
                 new CodeAttributeArgument(new CodePrimitiveExpression(retryTag.MaxRetries ?? _configuration.MaxRetries)));
 
             testMethod.CustomAttributes.Add(attribute);
@@ -119,7 +119,7 @@ namespace NUnitRetry.ReqnrollPlugin
             if (_configuration.ApplyGlobally)
             {
                 var attribute = new CodeAttributeDeclaration(
-                    "NUnit.Framework.Retry",
+                    RETRY_ATTR,
                     new CodeAttributeArgument(new CodePrimitiveExpression(_configuration.MaxRetries)));
 
                 testMethod.CustomAttributes.Add(attribute);

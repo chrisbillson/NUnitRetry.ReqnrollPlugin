@@ -8,6 +8,9 @@ namespace NUnitRetry.ReqnrollPlugin
     public class RetryConfiguration
     {
         private const string RetrySettingsKey = "NRetrySettings";
+        private const int DefaultMaxRetries = 1;
+        private const bool DefaultApplyGlobally = false;
+
         public int MaxRetries { get; private set; }
         public bool ApplyGlobally { get; private set; }
 
@@ -52,7 +55,9 @@ namespace NUnitRetry.ReqnrollPlugin
             }
             else
             {
-                throw new FileNotFoundException("reqnroll.json is missing! Ensure that you've provided the reqnroll.json file to your project and added the correct section. For more info proceed to the projects page: https://github.com/chrisbillson/NUnitRetry.ReqnrollPlugin");
+                // If reqnroll.json does not exist, fallback to safe default values.
+                MaxRetries = DefaultMaxRetries;
+                ApplyGlobally = DefaultApplyGlobally;
             }
         }
     }
