@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+        <PackageReference Include="NUnit" Version="4.3.2" />
+        <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
+        <PackageReference Include="Reqnroll.NUnit" Version="2.4.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ReqnrollGeneratorPlugins Include="../NUnitRetry.ReqnrollPlugin/bin/$(Configuration)/netstandard2.0/NUnitRetry.ReqnrollPlugin.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\NUnitRetry.ReqnrollPlugin\NUnitRetry.ReqnrollPlugin.csproj" />
+	</ItemGroup>
+
+</Project>
