@@ -11,13 +11,13 @@
         <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
         <PackageReference Include="Reqnroll.NUnit" Version="2.4.1" />
     </ItemGroup>
-
-	<ItemGroup>
-		<ReqnrollGeneratorPlugins Include="./NUnitRetry.ReqnrollPlugin/bin/$(Configuration)/netstandard2.0/NUnitRetry.ReqnrollPlugin.dll" />
-	</ItemGroup>
 	
     <ItemGroup>
       <ProjectReference Include="..\NUnitRetry.ReqnrollPlugin\NUnitRetry.ReqnrollPlugin.csproj" />
     </ItemGroup>
+
+	<ItemGroup>
+		<ReqnrollGeneratorPlugins Include="../NUnitRetry.ReqnrollPlugin/bin/$(Configuration)/netstandard2.0/NUnitRetry.ReqnrollPlugin.dll" />
+	</ItemGroup>
 
 </Project>
