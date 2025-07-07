@@ -1,4 +1,4 @@
-Feature: Retry
+Feature: Retry With Scenario Tag
 
 @Retry(3)
 Scenario: Retry tag works with parameter for failures from assertion
