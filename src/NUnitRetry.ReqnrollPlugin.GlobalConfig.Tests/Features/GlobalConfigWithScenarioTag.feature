@@ -8,7 +8,7 @@ Scenario: Total retries equals MaxRetries from global config when no retry count
 	Then the number of retries should be equal to value from config
 
 @Retry(3)
-Scenario: MaxRetries from scenario tag overrides value from global config
+Scenario: MaxRetries from scenario tag parameter overrides value from global config
 	Then the number of retries should be equal to 3
 	And the number of retries should not be equal to value from config
 
@@ -20,16 +20,6 @@ Scenario: ApplyGlobally applies expected retries from config when no scenario ta
 Scenario Outline: Total retries equals MaxRetries from global config when invoked as scenario outline
 	Then the number of retries should be equal to value from config
 	# we want to invoke the scenario generator; these values don't have any input.
-	Examples: 
-	| someExample |
-	| Yes         |
-	| No          |
-
-@Retry(3)
-Scenario Outline: Scenario outline works properly with Retry tag and amount of Retries equals to parameter
-	Then the number of retries should be equal to 3
-	And the number of retries should not be equal to value from config
-	# we want to invoke the scenario generator; these values don't have any input
 	Examples: 
 	| someExample |
 	| Yes         |

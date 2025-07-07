@@ -14,7 +14,7 @@ Scenario: Retry tag as lowercase works with parameter
 	And assertion failures should pass after 3 attempts
 
 @Retry(3)
-Scenario Outline: Scenario outline works properly with Retry tag and amount of Retries equals to parameter
+Scenario Outline: Total retries equals MaxRetries based on parameter when invoked as scenario outline
 	Then exception failures should pass after 3 attempts
 	And assertion failures should pass after 3 attempts
 	# we want to invoke scenario generator; these values don't have any input
