@@ -12,7 +12,7 @@ namespace NUnit.Framework
 
         public NRetryAttribute(int retryCount)
         {
-                
+
             if (retryCount <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(retryCount));

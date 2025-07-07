@@ -27,7 +27,7 @@ public class NRetryAttributeTests
         {
             throw new ApplicationException();
         }
-            
+
         Assert.That(TotalScenarioAttempts, Is.EqualTo(MaxRetryCount));
     }
 }

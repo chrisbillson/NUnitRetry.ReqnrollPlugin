@@ -41,7 +41,7 @@ public sealed class NRetryCommand : DelegatingTestCommand
             {
                 break;
             }
-               
+
             // Clear result for retry
             if (count > 0)
             {
