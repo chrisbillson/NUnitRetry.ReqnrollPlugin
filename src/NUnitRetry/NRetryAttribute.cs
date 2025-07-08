@@ -1,9 +1,9 @@
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal.Commands;
-using RetryOnException.NUnit;
 using System;
 
-namespace NUnit.Framework
+namespace NUnitRetry
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
     public sealed class NRetryAttribute : NUnitAttribute, IRepeatTest
