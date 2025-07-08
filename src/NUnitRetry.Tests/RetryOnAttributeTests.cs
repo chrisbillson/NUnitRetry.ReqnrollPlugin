@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 
-namespace RetryOnException.NUnit.Tests;
+namespace NUnitRetry.Tests;
 
 public class NRetryAttributeTests
 {
@@ -9,7 +9,7 @@ public class NRetryAttributeTests
 
     /// <summary>
     /// Gets the total number of scenario attempts.
-    /// Adjusts for NUnit's <see cref="NUnit.Framework.TestContext.CurrentContext.CurrentRepeatCount"/> 
+    /// Adjusts for NUnit's <see cref="Framework.TestContext.CurrentContext.CurrentRepeatCount"/> 
     /// by adding 1 to include the initial attempt.
     /// </summary>
     private int TotalScenarioAttempts => TestContext.CurrentContext.CurrentRepeatCount + 1;

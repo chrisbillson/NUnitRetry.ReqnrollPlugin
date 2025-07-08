@@ -3,7 +3,7 @@ using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
 using System;
 
-namespace RetryOnException.NUnit;
+namespace NUnitRetry;
 
 public sealed class NRetryCommand : DelegatingTestCommand
 {

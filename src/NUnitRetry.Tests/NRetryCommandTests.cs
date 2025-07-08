@@ -2,6 +2,7 @@ using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
+using NUnitRetry;
 using Shouldly;
 using System;
 
