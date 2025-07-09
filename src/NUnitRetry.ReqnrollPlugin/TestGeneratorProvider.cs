@@ -10,7 +10,7 @@ namespace NUnitRetry.ReqnrollPlugin
 {
     public class TestGeneratorProvider : NUnit3TestGeneratorProvider
     {
-        protected internal const string RETRY_ATTR = "NRetry";
+        protected internal const string RETRY_ATTR = "NUnitRetry.NRetry";
 
         private readonly RetryConfiguration _configuration;
 
