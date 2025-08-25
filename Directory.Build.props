@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+	<SignAssembly>True</SignAssembly>
+	<AssemblyOriginatorKeyFile>..\..\keyPair.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
 </Project>
