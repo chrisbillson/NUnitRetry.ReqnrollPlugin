@@ -29,7 +29,7 @@ If you have a test that covers some flaky code, where sporadic failures are caus
 ## Installation 
 1. Include the NuGet package (https://www.nuget.org/packages/NUnitRetry.ReqnrollPlugin/) to target project.
 2. Add reqnroll.json to your project **(NOTE: Without reqnroll.json, default retry values will be applied)**.
-3. Include the following section to reqnroll.json:
+3. Include the following section in reqnroll.json:
 ```json
 "NRetrySettings": {
     "maxRetries": 3,
