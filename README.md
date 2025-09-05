@@ -5,14 +5,12 @@
 # NUnitRetry.ReqnrollPlugin
 ## About
 
-Reqnroll conversion of NUnitRetry.SpecFlowPlugin by Piotr Niedzialek (https://github.com/farum12/NUnitRetry.SpecFlowPlugin)
-
-NUnitRetry Reqnroll Plugin is the newest approach to adding "Nunit.Framework.Retry" attribute to Reqnroll's generated tests. It's based on Josh Keegan xRetry (https://github.com/JoshKeegan/xRetry). It's intention is to mimic SpecFlow+ Runner's re-running abilities. It's main features are:
-* "Retry" and "Retry(n)" tag on Feature/Scenario/Scenario Outline level - adds "Nunit.Framework.Retry" attribute to given test with default value or "n"
-* Adding "Nunit.Framework.Retry" to each generated test method in the project with default max retries value
-* Ability to set default max retries value in reqnroll.json
-* Ability to add "Nunit.Framework.Retry" to each test method, without adding any tag to scenario/feature; value are based on default value from config
-* Prioritisation - Global setting-> Feature level setting -> Scenario level setting
+This plugin allows your Reqnroll generated tests to be automatically retried when required up to _n_ number of times. It's based on Josh Keegan's xRetry (https://github.com/JoshKeegan/xRetry). It's intention is to mimic SpecFlow+ Runner's re-running abilities. It's main features are:
+* Support for "Retry" and "Retry(n)" tags at Feature/Scenario/Scenario Outline level - this adds a custom retry attribute to the given test with a default value or "n".
+* Full configurability via reqnroll.json
+	- Ability to set a default max retries value
+	- Ability to apply retries globally across your whole test project without needing to add tags to specific scenarios/features
+	- Prioritisation - Global setting-> Feature level setting -> Scenario level setting
 
 ## "Why should I use that?"
 
@@ -28,7 +26,7 @@ If you have a test that covers some flaky code, where sporadic failures are caus
 
 ## Installation 
 1. Include the NuGet package (https://www.nuget.org/packages/NUnitRetry.ReqnrollPlugin/) to target project.
-2. Add reqnroll.json to your project **(NOTE: Without reqnroll.json an exception will be thrown during test startup)**.
+2. Add reqnroll.json to your project **(NOTE: Without reqnroll.json, default retry values will be applied)**.
 3. Include following section to reqnroll.json:
 ```json
 "NRetrySettings": {
@@ -36,8 +34,8 @@ If you have a test that covers some flaky code, where sporadic failures are caus
     "applyGlobally": true
   }
 ```
-4. Modify maxRetries value - it sets default amount of max retries, which are applied when `@Retry` tag is used.
-5. Modify applyGlobally value - it sets whether test methods generated from Features/Scenarios without a tag should also obtain "Nunit.Framework.Retry(maxRetries)" attribute.
+4. Modify maxRetries value - sets default amount of max retries, which are applied when `@Retry` tag is used.
+5. Modify applyGlobally value - sets whether test methods generated from Features/Scenarios without a tag should also be retried.
 
 ## Usage
 
