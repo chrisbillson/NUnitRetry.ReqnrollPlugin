@@ -5,12 +5,14 @@
 # NUnitRetry.ReqnrollPlugin
 ## About
 
-This plugin allows your Reqnroll generated tests to be automatically retried when required up to _n_ number of times. It's based on Josh Keegan's xRetry (https://github.com/JoshKeegan/xRetry). It's intention is to mimic SpecFlow+ Runner's re-running abilities. It's main features are:
+Reqnroll conversion of NUnitRetry.SpecFlowPlugin by Piotr Niedzialek (https://github.com/farum12/NUnitRetry.SpecFlowPlugin)
+
+NUnitRetry plugin is the newest approach to applying retries to your tests in Reqnroll. It allows your generated tests to be automatically retried when required up to _n_ number of times. It's based on Josh Keegan's xRetry (https://github.com/JoshKeegan/xRetry). It's intention is to mimic SpecFlow+ Runner's re-running abilities. The main features are:
 * Support for "Retry" and "Retry(n)" tags at Feature/Scenario/Scenario Outline level - this adds a custom retry attribute to the given test with a default value or "n".
-* Full configurability via reqnroll.json
+* Full configurability via `reqnroll.json`
 	- Ability to set a default max retries value
 	- Ability to apply retries globally across your whole test project without needing to add tags to specific scenarios/features
-	- Prioritisation - Global setting-> Feature level setting -> Scenario level setting
+	- Logical configuration overrides - Global setting -> Feature level setting -> Scenario level setting
 
 ## "Why should I use that?"
 
@@ -27,7 +29,7 @@ If you have a test that covers some flaky code, where sporadic failures are caus
 ## Installation 
 1. Include the NuGet package (https://www.nuget.org/packages/NUnitRetry.ReqnrollPlugin/) to target project.
 2. Add reqnroll.json to your project **(NOTE: Without reqnroll.json, default retry values will be applied)**.
-3. Include following section to reqnroll.json:
+3. Include the following section to reqnroll.json:
 ```json
 "NRetrySettings": {
     "maxRetries": 3,
@@ -96,7 +98,7 @@ opening an issue first to discuss, and make sure nobody else is working on the s
 1. Download the repo.
 2. Open `NUnitRetry.sln` in VS.
 3. Make any changes to the plugin in the `NUnitRetry.ReqnrollPlugin` project
-4. Build and test your changes via the `NUnitRetry.ReqnrollPlugin.Tests` project (this is configured to pickup the latest version of the plugin built from local source).
+4. Build and test your changes via the relevant `NUnitRetry` test project (these are configured to pickup the latest version of the plugin built from local source).
 5. That's it!
 
 ## Roadmap
@@ -111,6 +113,7 @@ opening an issue first to discuss, and make sure nobody else is working on the s
 - ✅ Code cleanup
 - ✅ Implement logic when reqnroll.json is not present
 - ✅ Implement logic when configuration in reqnroll.json is not present
+- ✅ Implement custom retry attribute to workaround Nunit's retry limitations
 
 ## Licence
 [MIT](LICENSE)
