@@ -24,6 +24,10 @@
     {
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
+    },
+    {
+      "matchPackageNames": ["/^reqnroll/"],
+      "groupName": "reqnroll"
     }
   ]
 }
