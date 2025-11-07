@@ -11,7 +11,7 @@
     <tags>Reqnroll NUnit Retry Test-Automation</tags>
 
     <dependencies>
-	    <dependency id="Reqnroll.CustomPlugin" version="3.2.0" />
+	    <dependency id="Reqnroll.CustomPlugin" version="3.2.1" />
     </dependencies>
   </metadata>
 
