@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
@@ -44,6 +45,9 @@ public sealed class NRetryCommand : DelegatingTestCommand
             // Clear result for retry
             if (count > 0)
             {
+                TestContext.Progress.WriteLine(
+                    $"[NUnitRetry] '{context.CurrentTest.FullName}' failed, retrying ({_retryCount - count}/{_retryCount})...");
+
                 context.CurrentResult = context.CurrentTest.MakeTestResult();
                 context.CurrentRepeatCount++; // increment Retry count for next iteration. will only happen if we are guaranteed another iteration
             }
