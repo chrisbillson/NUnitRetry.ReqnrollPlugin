@@ -46,7 +46,7 @@ public sealed class NRetryCommand : DelegatingTestCommand
             if (count > 0)
             {
                 TestContext.Progress.WriteLine(
-                    $"[NUnitRetry] '{context.CurrentTest.FullName}' failed, retrying ({_retryCount - count}/{_retryCount})...");
+                    $"[NUnitRetry] '{context.CurrentTest.Name}' failed, retrying ({_retryCount - count}/{_retryCount})...");
 
                 context.CurrentResult = context.CurrentTest.MakeTestResult();
                 context.CurrentRepeatCount++; // increment Retry count for next iteration. will only happen if we are guaranteed another iteration
