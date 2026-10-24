@@ -6,12 +6,25 @@ using System;
 
 namespace NUnitRetry;
 
+public interface IRetryOutputWriter
+{
+    public void WriteLine(string message);
+}
+
+public sealed class NRetryOutputWriter : IRetryOutputWriter
+{
+    public void WriteLine(string message) => TestContext.Progress.WriteLine(message);
+}
+
 public sealed class NRetryCommand : DelegatingTestCommand
 {
     private readonly int _retryCount;
+    private readonly IRetryOutputWriter _outputWriter;
 
-    public NRetryCommand(TestCommand innerCommand, int retryCount) : base(innerCommand)
+    public NRetryCommand(TestCommand innerCommand, int retryCount, IRetryOutputWriter outputWriter) : base(innerCommand)
     {
+        _outputWriter = outputWriter ?? throw new ArgumentNullException(nameof(outputWriter));
+
         if (retryCount <= 0)
         {
             throw new ArgumentOutOfRangeException(nameof(retryCount));
@@ -23,6 +36,7 @@ public sealed class NRetryCommand : DelegatingTestCommand
     public override TestResult Execute(TestExecutionContext context)
     {
         int count = _retryCount;
+        
 
         while (count-- > 0)
         {
@@ -45,7 +59,7 @@ public sealed class NRetryCommand : DelegatingTestCommand
             // Clear result for retry
             if (count > 0)
             {
-                TestContext.Progress.WriteLine(
+                _outputWriter.WriteLine(
                     $"[NUnitRetry] '{context.CurrentTest.Name}' failed, retrying ({_retryCount - count}/{_retryCount})...");
 
                 context.CurrentResult = context.CurrentTest.MakeTestResult();
