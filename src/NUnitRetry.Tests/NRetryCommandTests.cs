@@ -62,6 +62,22 @@ public class NRetryCommandTests
             .ShouldBeSameAs(testResult);
     }
 
+    [Test]
+    public void ShouldLogRetryToOutputStream()
+    {
+        (var context, var innerCommand, var testResult, var outputWriter) = Arrange();
+
+        innerCommand.Setup(c => c.Execute(It.IsAny<TestExecutionContext>()))
+            .Throws(new NUnitException("a message", new ApplicationException()));
+
+        new NRetryCommand(innerCommand.Object, 2, outputWriter.Object)
+            .Execute(context)
+            .ShouldBeSameAs(testResult);
+
+        outputWriter.Verify(w => w.WriteLine("[NUnitRetry] 'some test' failed, retrying (1/2)..."), Times.Once);
+        outputWriter.VerifyNoOtherCalls();
+    }
+
     private (TestExecutionContext context, Mock<TestCommand> innerCommand, TestResult testResult, Mock<IRetryOutputWriter> outputWriter) Arrange()
     {
         var test = new Mock<Test>("some test");
