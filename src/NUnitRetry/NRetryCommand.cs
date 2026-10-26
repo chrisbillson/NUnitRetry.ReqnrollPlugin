@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
@@ -26,7 +25,6 @@ public sealed class NRetryCommand : DelegatingTestCommand
     public override TestResult Execute(TestExecutionContext context)
     {
         int count = _retryCount;
-        
 
         while (count-- > 0)
         {
