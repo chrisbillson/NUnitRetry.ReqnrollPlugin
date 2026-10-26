@@ -1,10 +1,12 @@
 using Moq;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
 using NUnitRetry;
 using Shouldly;
 using System;
+using System.Collections.Generic;
 
 namespace RetryOnException.NUnit.Tests;
 
@@ -75,6 +77,46 @@ public class NRetryCommandTests
             .ShouldBeSameAs(testResult);
 
         outputWriter.Verify(w => w.WriteLine("[NUnitRetry] 'some test' attempt 1/2 failed, retrying... Reason: System.ApplicationException : boom"), Times.Once);
+        outputWriter.VerifyNoOtherCalls();
+    }
+
+    [Test]
+    public void ShouldLogEachRetryInOrderExceptFinalAttempt()
+    {
+        (var context, var innerCommand, var testResult, var outputWriter) = Arrange();
+        var messages = new List<string>();
+
+        innerCommand.Setup(c => c.Execute(It.IsAny<TestExecutionContext>()))
+            .Throws(new NUnitException("a message", new ApplicationException("boom")));
+        outputWriter.Setup(w => w.WriteLine(It.IsAny<string>())).Callback<string>(messages.Add);
+
+        new NRetryCommand(innerCommand.Object, 3, outputWriter.Object)
+            .Execute(context)
+            .ShouldBeSameAs(testResult);
+
+        messages.ShouldBe(
+        [
+            "[NUnitRetry] 'some test' attempt 1/3 failed, retrying... Reason: System.ApplicationException : boom",
+            "[NUnitRetry] 'some test' attempt 2/3 failed, retrying... Reason: System.ApplicationException : boom"
+        ]);
+    }
+
+    [Test]
+    public void ShouldStopLoggingWhenRetryPasses()
+    {
+        (var context, var innerCommand, _, var outputWriter) = Arrange();
+        var passedResult = new Mock<TestResult>(context.CurrentTest).Object;
+        passedResult.SetResult(ResultState.Success);
+
+        innerCommand.SetupSequence(c => c.Execute(It.IsAny<TestExecutionContext>()))
+            .Throws(new NUnitException("a message", new ApplicationException("boom")))
+            .Returns(passedResult);
+
+        new NRetryCommand(innerCommand.Object, 3, outputWriter.Object)
+            .Execute(context)
+            .ShouldBeSameAs(passedResult);
+
+        outputWriter.Verify(w => w.WriteLine("[NUnitRetry] 'some test' attempt 1/3 failed, retrying... Reason: System.ApplicationException : boom"), Times.Once);
         outputWriter.VerifyNoOtherCalls();
     }
 
