@@ -68,13 +68,13 @@ public class NRetryCommandTests
         (var context, var innerCommand, var testResult, var outputWriter) = Arrange();
 
         innerCommand.Setup(c => c.Execute(It.IsAny<TestExecutionContext>()))
-            .Throws(new NUnitException("a message", new ApplicationException()));
+            .Throws(new NUnitException("a message", new ApplicationException("boom")));
 
         new NRetryCommand(innerCommand.Object, 2, outputWriter.Object)
             .Execute(context)
             .ShouldBeSameAs(testResult);
 
-        outputWriter.Verify(w => w.WriteLine("[NUnitRetry] 'some test' failed, retrying (1/2)..."), Times.Once);
+        outputWriter.Verify(w => w.WriteLine("[NUnitRetry] 'some test' attempt 1/2 failed, retrying... Reason: System.ApplicationException : boom"), Times.Once);
         outputWriter.VerifyNoOtherCalls();
     }
 
