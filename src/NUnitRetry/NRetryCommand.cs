@@ -10,6 +10,9 @@ public sealed class NRetryCommand : DelegatingTestCommand
     private readonly int _retryCount;
     private readonly IRetryOutputWriter _outputWriter;
 
+    public NRetryCommand(TestCommand innerCommand, int retryCount)
+        : this(innerCommand, retryCount, NRetryOutputWriter.Instance) { }
+
     public NRetryCommand(TestCommand innerCommand, int retryCount, IRetryOutputWriter outputWriter) : base(innerCommand)
     {
         _outputWriter = outputWriter ?? throw new ArgumentNullException(nameof(outputWriter));
