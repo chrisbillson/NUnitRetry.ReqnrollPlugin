@@ -6,16 +6,6 @@ using System;
 
 namespace NUnitRetry;
 
-public interface IRetryOutputWriter
-{
-    public void WriteLine(string message);
-}
-
-public sealed class NRetryOutputWriter : IRetryOutputWriter
-{
-    public void WriteLine(string message) => TestContext.Progress.WriteLine(message);
-}
-
 public sealed class NRetryCommand : DelegatingTestCommand
 {
     private readonly int _retryCount;

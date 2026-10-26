@@ -20,6 +20,6 @@ namespace NUnitRetry
         }
 
         public TestCommand Wrap(TestCommand command) =>
-            new NRetryCommand(command, _retryCount, new NRetryOutputWriter());
+            new NRetryCommand(command, _retryCount, NRetryOutputWriter.Instance);
     }
 }
