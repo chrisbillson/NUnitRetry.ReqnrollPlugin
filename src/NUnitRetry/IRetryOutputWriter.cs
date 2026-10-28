@@ -1,6 +1,6 @@
 namespace NUnitRetry;
 
-public interface IRetryOutputWriter
+internal interface IRetryOutputWriter
 {
     public void WriteLine(string message);
 }

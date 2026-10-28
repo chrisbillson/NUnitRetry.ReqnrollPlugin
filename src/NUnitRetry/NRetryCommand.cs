@@ -13,7 +13,7 @@ public sealed class NRetryCommand : DelegatingTestCommand
     public NRetryCommand(TestCommand innerCommand, int retryCount)
         : this(innerCommand, retryCount, NRetryOutputWriter.Instance) { }
 
-    public NRetryCommand(TestCommand innerCommand, int retryCount, IRetryOutputWriter outputWriter) : base(innerCommand)
+    internal NRetryCommand(TestCommand innerCommand, int retryCount, IRetryOutputWriter outputWriter) : base(innerCommand)
     {
         _outputWriter = outputWriter ?? throw new ArgumentNullException(nameof(outputWriter));
 
