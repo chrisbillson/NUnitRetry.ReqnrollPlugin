@@ -9,4 +9,8 @@
     <PackageReference Include="NUnit" Version="3.14.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="NUnitRetry.Tests" Key="0024000004800000940000000602000000240000525341310004000001000100d9d7feee4663a495a75de6415eabcf98f150dda7001c8b6973b1d4a6f7d4ba4ea6e5249b563593e15daea325301e70c0086d329398e7b94fa1146354223adcbc9ef709bfac0050a5d07e31c5b49788820e9de38a04cb92fe3581380fa1cd9cf851147b251d9f2cf58780da7a976f394a48fbb5ff4017ab26ee87d0796925fdb7" />
+  </ItemGroup>
+
 </Project>
