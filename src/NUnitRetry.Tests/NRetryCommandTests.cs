@@ -7,6 +7,7 @@ using NUnitRetry;
 using Shouldly;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace RetryOnException.NUnit.Tests;
 
@@ -118,6 +119,60 @@ public class NRetryCommandTests
 
         outputWriter.Verify(w => w.WriteLine("[NUnitRetry] 'some test' attempt 1/3 failed, retrying... Reason: System.ApplicationException : boom"), Times.Once);
         outputWriter.VerifyNoOtherCalls();
+    }
+
+    [Test]
+    public void ShouldLogRetryWhenInnerCommandReturnsFailedResult()
+    {
+        (var context, var innerCommand, _, var outputWriter) = Arrange();
+        var failedResult = new Mock<TestResult>(context.CurrentTest).Object;
+        failedResult.SetResult(ResultState.Failure, "Expected: 3 But was: 1");
+
+        innerCommand.Setup(c => c.Execute(It.IsAny<TestExecutionContext>()))
+            .Returns(failedResult);
+
+        new NRetryCommand(innerCommand.Object, 2, outputWriter.Object)
+            .Execute(context)
+            .ShouldBeSameAs(failedResult);
+
+        outputWriter.Verify(w => w.WriteLine("[NUnitRetry] 'some test' attempt 1/2 failed, retrying... Reason: Expected: 3 But was: 1"), Times.Once);
+        outputWriter.VerifyNoOtherCalls();
+    }
+
+    [Test]
+    public void ShouldNotLogWhenOnlyAttemptFails()
+    {
+        (var context, var innerCommand, _, var outputWriter) = Arrange();
+
+        innerCommand.Setup(c => c.Execute(It.IsAny<TestExecutionContext>()))
+            .Throws<ApplicationException>();
+
+        new NRetryCommand(innerCommand.Object, 1, outputWriter.Object)
+            .Execute(context);
+
+        outputWriter.VerifyNoOtherCalls();
+    }
+
+    [Test]
+    public void ShouldThrowWhenOutputWriterIsNull()
+    {
+        (_, var innerCommand, _, _) = Arrange();
+
+        Should.Throw<ArgumentNullException>(() => new NRetryCommand(innerCommand.Object, 1, null))
+            .ParamName.ShouldBe("outputWriter");
+    }
+
+    [Test]
+    public void ShouldUseDefaultOutputWriterWhenNoneIsGiven()
+    {
+        (_, var innerCommand, _, _) = Arrange();
+
+        var command = new NRetryCommand(innerCommand.Object, 1);
+
+        typeof(NRetryCommand)
+            .GetField("_outputWriter", BindingFlags.NonPublic | BindingFlags.Instance)!
+            .GetValue(command)
+            .ShouldBeSameAs(NRetryOutputWriter.Instance);
     }
 
     private (TestExecutionContext context, Mock<TestCommand> innerCommand, TestResult testResult, Mock<IRetryOutputWriter> outputWriter) Arrange()
