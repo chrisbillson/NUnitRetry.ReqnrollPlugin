@@ -20,5 +20,6 @@
 	  
     <file src="bin\$config$\netstandard2.0\NUnitRetry.dll" target="lib\netstandard2.0" />
 	<file src="bin\$config$\netstandard2.0\NUnitRetry.ReqnrollPlugin.*" target="build\netstandard2.0" />
+	<file src="bin\$config$\netstandard2.0\NUnitRetry.ReqnrollPlugin.*" target="lib\netstandard2.0" />
   </files>
 </package>
