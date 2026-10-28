@@ -1,21 +1,24 @@
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace NUnitRetry;
 
 public sealed class NRetryCommand : DelegatingTestCommand
 {
     private readonly int _retryCount;
-    private readonly IRetryOutputWriter _outputWriter;
+    private readonly TextWriter _progress;
 
     public NRetryCommand(TestCommand innerCommand, int retryCount)
-        : this(innerCommand, retryCount, NRetryOutputWriter.Instance) { }
+        : this(innerCommand, retryCount, TestContext.Progress) { }
 
-    internal NRetryCommand(TestCommand innerCommand, int retryCount, IRetryOutputWriter outputWriter) : base(innerCommand)
+    internal NRetryCommand(TestCommand innerCommand, int retryCount, TextWriter progress) : base(innerCommand)
     {
-        _outputWriter = outputWriter ?? throw new ArgumentNullException(nameof(outputWriter));
+        _progress = progress ?? throw new ArgumentNullException(nameof(progress));
 
         if (retryCount <= 0)
         {
@@ -28,6 +31,7 @@ public sealed class NRetryCommand : DelegatingTestCommand
     public override TestResult Execute(TestExecutionContext context)
     {
         int count = _retryCount;
+        var retryLog = new List<string>();
 
         while (count-- > 0)
         {
@@ -47,13 +51,19 @@ public sealed class NRetryCommand : DelegatingTestCommand
                 break;
             }
 
-            // Clear result for retry
             if (count > 0)
             {
-                _outputWriter.WriteLine(
-                    $"[NUnitRetry] '{context.CurrentTest.Name}' attempt {_retryCount - count}/{_retryCount} failed, retrying... Reason: {context.CurrentResult.Message}");
+                var message = $"[NUnitRetry] '{context.CurrentTest.Name}' attempt {_retryCount - count}/{_retryCount} failed, retrying... Reason: {context.CurrentResult.Message}";
+                _progress.WriteLine(message);
+                retryLog.Add(message);
 
+                // Clear result for retry, keeping the retry history in its output
                 context.CurrentResult = context.CurrentTest.MakeTestResult();
+                foreach (var line in retryLog)
+                {
+                    context.CurrentResult.OutWriter.WriteLine(line);
+                }
+
                 context.CurrentRepeatCount++; // increment Retry count for next iteration. will only happen if we are guaranteed another iteration
             }
         }

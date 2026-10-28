@@ -12,6 +12,7 @@ namespace NUnitRetry
 
         public NRetryAttribute(int retryCount)
         {
+
             if (retryCount <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(retryCount));
@@ -20,6 +21,6 @@ namespace NUnitRetry
         }
 
         public TestCommand Wrap(TestCommand command) =>
-            new NRetryCommand(command, _retryCount, NRetryOutputWriter.Instance);
+            new NRetryCommand(command, _retryCount);
     }
 }
